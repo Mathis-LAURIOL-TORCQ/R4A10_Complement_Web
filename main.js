@@ -27,9 +27,13 @@ function displayNumbers() {
 }
 
 function updateCss(S_value, O_elem) {
+    if (document.getElementById("contextMessage")) {
+        document.getElementById("contextMessage").remove();
+    }
     if (S_value > 30) {
         console.log("30");
         O_elem.setAttribute("class", "red");
+        createParagraph("Caliente ! Vamos a la playa, ho hoho hoho !!")
     } else if (S_value > 20) {
         console.log("20");
         O_elem.setAttribute("class", "orange");
@@ -39,7 +43,17 @@ function updateCss(S_value, O_elem) {
     }else if (S_value > -10) {
         console.log("-10");
         O_elem.setAttribute("class", "blue");
+        createParagraph("Brrrrrrr, un peu froid ce matin, mets ta cagoule !")
     }
+}
+
+
+function createParagraph(S_text) {
+    var newPara = document.createElement("p");
+    newPara.innerHTML = S_text;
+    newPara.setAttribute("id", "contextMessage");
+    const firstSection = document.getElementById("section");
+    document.body.insertBefore(newPara, firstSection);
 }
 
 
