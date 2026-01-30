@@ -7,10 +7,37 @@
     <title>R4A10</title>
 </head>
 <body>
-    <section id="section">
-        <h2>Une belle section</h2>
-        <p id="js_value">dummy</p>
+    <section id="section" class="info-box">
+        <ul>
+            <li><a href="#" class="active">Onglet 1</a></li>
+            <li><a href="#">Onglet 2</a></li>
+        </ul>
+
+        <div class="panels">
+            <article class="active-panel">
+                <h2>Une belle section</h2>
+                <data id="js_value" aria-live="polite">dummy</data>
+            </article>
+
+            <article>
+                <h2>Historique</h2>
+                <table>
+                <tr>
+                    <th>Température</th>
+                </tr>
+                <tr>
+                    <td><data>10</data></td>
+                </tr>
+                <tr>
+                    <td><data>15</data></td>
+                </tr>
+                </table>
+
+
+            </article>
+        </div>
     </section>
 </body>
 <script src="main.js"></script>
 </html>
+

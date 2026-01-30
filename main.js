@@ -1,5 +1,29 @@
 var A_tableau = [];
 
+let tabs = document.querySelectorAll(".info-box li a");
+let panels = document.querySelectorAll(".info-box article");
+
+for (let i = 0; i < tabs.length; i++) {
+  let tab = tabs[i];
+  setTabHandler(tab, i);
+}
+
+function setTabHandler(tab, tabPos) {
+  tab.onclick = function () {
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].className = "";
+    }
+
+    tab.className = "active";
+
+    for (let i = 0; i < panels.length; i++) {
+      panels[i].className = "";
+    }
+
+    panels[tabPos].className = "active-panel";
+  };
+}
+
 
 function getRandomArbitrary(min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
@@ -49,11 +73,13 @@ function updateCss(S_value, O_elem) {
 
 
 function createParagraph(S_text) {
-    var newPara = document.createElement("p");
+    var newPara = document.createElement("data");
+    newPara.setAttribute("role", "alert");
+    newPara.setAttribute("aria-live", "assertive");
     newPara.innerHTML = S_text;
     newPara.setAttribute("id", "contextMessage");
-    const firstSection = document.getElementById("section");
-    document.body.insertBefore(newPara, firstSection);
+    const section = document.getElementById("js_value");
+    section.insertAdjacentElement("beforebegin", newPara);
 }
 
 
